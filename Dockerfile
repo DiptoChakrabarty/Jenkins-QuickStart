@@ -1,6 +1,8 @@
 FROM  centos
 
 RUN yum install openssh-server -y && \
+    yum install  -y passwd && \
+  yum install  -y  initscripts  && \
    useradd  sample && \
   echo "sample" | passwd sample --stdin && \
  mkdir /home/sample/.ssh  && \
