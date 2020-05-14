@@ -13,6 +13,8 @@ COPY  .ssh/id_rsa.pub /home/sample/.ssh/authorized_keys
 RUN chown sample:sample -R /home/sample/.ssh/  && \
 chmod 600  /home/sample/.ssh/authorized_keys
 
+EXPOSE  22
+
 RUN   /usr/sbin/sshd-keygen
 
 CMD  /usr/sbin/sshd -D

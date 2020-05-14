@@ -9,6 +9,9 @@ services:
                         - "$PWD/jenkins:/var/jenkins_home"
                 networks:
                         - net
-networks:
-    net:
+        remote:
+                container_name: : remote
+                image: remote
+                build: .
+                        
 
