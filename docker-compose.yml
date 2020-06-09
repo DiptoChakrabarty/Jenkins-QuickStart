@@ -13,5 +13,13 @@ services:
                 container_name: : remote
                 image: remote
                 build: .
+        db_host:
+                container_name: db
+                image: mysql:5.7
+                environment: 
+                        - "MYSQL_ROOT_PASSWORD=dipto"
+                volumes: 
+                        - "$PWD/db_data:/var/lib/mysql"
+                
                         
 
