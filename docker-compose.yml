@@ -11,7 +11,7 @@ services:
                 networks:
                         - net
         remote:
-                container_name: : remote
+                container_name: remote
                 image: remote
                 build: .
         db_host:
