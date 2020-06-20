@@ -6,7 +6,7 @@ RUN yum install openssh-server -y && \
    useradd  sample && \
   echo "sample" | passwd sample --stdin && \
  mkdir /home/sample/.ssh  && \
-  chmod 700 /home/sample/.ssh
+  chmod 700 /home/sample/.ssh 
 
 COPY  .ssh/id_rsa.pub /home/sample/.ssh/authorized_keys
 
@@ -15,6 +15,6 @@ chmod 600  /home/sample/.ssh/authorized_keys
 
 EXPOSE  22
 
-RUN   /usr/sbin/sshd-keygen
+RUN   /usr/bin/ssh-keygen -A 
 
-CMD  /usr/sbin/sshd -D
+CMD   ["/usr/sbin/sshd", "-D"]
