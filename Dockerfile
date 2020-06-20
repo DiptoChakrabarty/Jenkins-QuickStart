@@ -15,6 +15,8 @@ chmod 600  /home/sample/.ssh/authorized_keys
 
 EXPOSE  22
 
+RUN rm -rf /run/nologin
+
 RUN   /usr/bin/ssh-keygen -A 
 
 CMD   ["/usr/sbin/sshd", "-D"]
