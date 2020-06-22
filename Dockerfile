@@ -17,6 +17,9 @@ EXPOSE  22
 
 RUN rm -rf /run/nologin
 
-RUN   /usr/bin/ssh-keygen -A 
+RUN   /usr/bin/ssh-keygen -A  && yum install mysql -y 
+
+RUN yum -y install python-pip && \
+      pip install --upgrade pip &&  pip install awscli
 
 CMD   ["/usr/sbin/sshd", "-D"]
