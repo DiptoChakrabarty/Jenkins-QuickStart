@@ -19,7 +19,8 @@ RUN rm -rf /run/nologin
 
 RUN   /usr/bin/ssh-keygen -A  && yum install mysql -y 
 
-RUN yum -y install python-pip && \
-      pip install --upgrade pip &&  pip install awscli
+RUN   yum --enablerepo=extras install epel-release -y &&  yum -y install python3-pip && \
+        pip3 install awscli
+
 
 CMD   ["/usr/sbin/sshd", "-D"]
