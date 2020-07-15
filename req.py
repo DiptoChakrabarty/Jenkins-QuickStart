@@ -1,15 +1,23 @@
 import requests,json
 
-url="http://dipto:114585c973eb2a96f8f81e2b60d1fa8c05@127.0.0.1:8080/job/deployer/buildWithParameters?token=dIptoChakrabaRty7jenkins367build"
+jenkins_url="http://localhost:8080/job/deployer/buildWithParameters?token=diptoChakrabaRty7jenkins367"
 
-data={
-    "url": "medium.com",
-    "name": "medium",
-    "var": "jenkins",
-    "n": 5
-}
+auth=("devopss","11e0d28baa8a6662e57e5b5f48000f130d")
 
-response = requests.post(url,data=json.dumps(data),
-        headers={'Content-Type': 'application/json'})
+jenkins_params={
+    'url': 'medium.com',
+     'name': 'medium', 
+     'var': 'jenkins',
+      'n': 2
+    }
+
+print(jenkins_params)
+
+print(jenkins_url)
+
+response = requests.get(
+            jenkins_url,auth=auth,
+            params=jenkins_params,
+            headers={'content-type': 'application/json'})
 
 print(response.status_code)
