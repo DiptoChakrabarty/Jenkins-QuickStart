@@ -1,7 +1,8 @@
 pipeline {
     agent any
 
-    stage("build") {
+    stages {
+         stage("build") {
         when {
             expresion {
                 BRANCH_NAME == 'master' && CODE_CHANGES == true
@@ -28,5 +29,6 @@ pipeline {
         steps {
             echo "deploying the application"
         }
-    }
+      }
+   }
 }
